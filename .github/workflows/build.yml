@@ -44,5 +44,5 @@ jobs:
         with:
           path: ksiazka.pdf
   #         ksiazka.docx
-            archive: false
+          archive: false
   
