@@ -33,7 +33,7 @@ jobs:
             -o ksiazka.pdf
       - name: Generuj syllabus (HTML)
         run: |
-          pandoc syllabus.md \
+          pandoc docs/syllabus.md \
             --standalone \
             --toc \
             -V lang=pl \
