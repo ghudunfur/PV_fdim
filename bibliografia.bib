@@ -1,0 +1,107 @@
+% =====================================================================
+%  bibliografia.bib  —  centralna baza źródeł podręcznika
+%  Inspekcje termowizyjne farm PV UAV
+% ---------------------------------------------------------------------
+%  Konwencja klucza cytowania:  {organ}{numer}  (małe litery, bez spacji)
+%  np.  iec62446-3,  wmo306,  iso9060
+%  W tekście rozdziału cytuj kluczem:  ...zgodnie z normą [@iec62446-3].
+%  Numeracja i lista literatury powstają automatycznie przy kompilacji.
+%  PRZED PUBLIKACJĄ: zweryfikować wydania/lata względem katalogów IEC/ISO/WMO.
+% =====================================================================
+
+% ---------- Normy i specyfikacje inspekcji PV (IEC) ----------
+
+@techreport{iec62446-3,
+  author      = {{International Electrotechnical Commission}},
+  title       = {Photovoltaic (PV) systems -- Requirements for testing, documentation and maintenance -- Part 3: Photovoltaic modules and plants -- Outdoor infrared thermography},
+  number      = {IEC TS 62446-3:2017},
+  institution = {IEC},
+  type        = {Technical Specification},
+  year        = {2017},
+  note        = {Dokument kluczowy podręcznika. Status: Technical Specification (TS).}
+}
+
+@techreport{iec61724-1,
+  author      = {{International Electrotechnical Commission}},
+  title       = {Photovoltaic system performance -- Part 1: Monitoring},
+  number      = {IEC 61724-1:2021},
+  institution = {IEC},
+  edition      = {2},
+  year        = {2021}
+}
+
+@techreport{iec61724-3,
+  author      = {{International Electrotechnical Commission}},
+  title       = {Photovoltaic system performance -- Part 3: Energy evaluation method},
+  number      = {IEC TS 61724-3:2016},
+  institution = {IEC},
+  type        = {Technical Specification},
+  year        = {2016}
+}
+
+@misc{iecre,
+  author       = {{IECRE}},
+  title        = {IEC System for Certification to Standards Relating to Equipment for Use in Renewable Energy Applications -- Operational Documents},
+  howpublished = {\url{https://www.iecre.org}},
+  year         = {2024},
+  note         = {Doprecyzować konkretny dokument operacyjny przy cytowaniu.}
+}
+
+% ---------- Warunki atmosferyczne i obserwacja nieba (WMO) ----------
+
+@book{wmo306,
+  author    = {{World Meteorological Organization}},
+  title     = {Manual on Codes -- International Codes, Volume I.1},
+  number    = {WMO-No. 306},
+  publisher = {WMO},
+  address   = {Geneva},
+  note      = {Code Table 2700 ,,Cloud amount'' -- definicja skali okta (0--8).}
+}
+
+@book{wmo8,
+  author    = {{World Meteorological Organization}},
+  title     = {Guide to Instruments and Methods of Observation, Volume I: Measurement of Meteorological Variables},
+  number    = {WMO-No. 8},
+  edition   = {2023},
+  publisher = {WMO},
+  address   = {Geneva},
+  year      = {2023},
+  note      = {Rozdz. 15 ,,Observation of clouds'' (metodyka oceny zachmurzenia); rozdz. 5 (pomiar wiatru).}
+}
+
+@book{wmo407,
+  author    = {{World Meteorological Organization}},
+  title     = {International Cloud Atlas -- Manual on the Observation of Clouds and Other Meteors},
+  number    = {WMO-No. 407},
+  publisher = {WMO},
+  address   = {Geneva},
+  note      = {Klasyfikacja rodzajów chmur (m.in. cumulus, cirrus).}
+}
+
+@techreport{iso15469,
+  author      = {{International Organization for Standardization}},
+  title       = {Spatial distribution of daylight -- CIE standard general sky},
+  number      = {ISO 15469:2004},
+  institution = {ISO/CIE},
+  year        = {2004},
+  note        = {= CIE S 011/E:2003. Dotyczy rozkładu luminancji nieba, NIE skali okta. W rewizji jako ISO/CIE 15469.}
+}
+
+% ---------- Pomiar irradiancji ----------
+
+@techreport{iso9060,
+  author      = {{International Organization for Standardization}},
+  title       = {Solar energy -- Specification and classification of instruments for measuring hemispherical solar and direct solar irradiance},
+  number      = {ISO 9060:2018},
+  institution = {ISO},
+  year        = {2018},
+  note        = {Klasy pyranometrów A/B/C. Osiągana w łańcuchu przez IEC 61724-1.}
+}
+
+@techreport{iso9847,
+  author      = {{International Organization for Standardization}},
+  title       = {Solar energy -- Calibration of pyranometers},
+  number      = {ISO 9847:2023},
+  institution = {ISO},
+  year        = {2023}
+}
