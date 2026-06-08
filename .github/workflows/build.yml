@@ -18,10 +18,10 @@ cancel-in-progress: true
 jobs:
 build:
 runs-on: ubuntu-latest
-container:
-image: pandoc/latex:latest
 
-```
+container:
+  image: pandoc/latex:latest
+
 steps:
   - name: Checkout
     uses: actions/checkout@v4
@@ -41,7 +41,7 @@ steps:
 
   - name: Przygotuj Pages
     run: |
-      mkdir public
+      mkdir -p public
       cp ksiazka.pdf public/
       echo '<meta http-equiv="refresh" content="0; url=ksiazka.pdf">' > public/index.html
 
@@ -49,18 +49,3 @@ steps:
     uses: actions/upload-pages-artifact@v3
     with:
       path: public
-```
-
-deploy:
-needs: build
-runs-on: ubuntu-latest
-environment:
-name: github-pages
-url: ${{ steps.deployment.outputs.page_url }}
-
-```
-steps:
-  - name: Deploy to GitHub Pages
-    id: deployment
-    uses: actions/deploy-pages@v4
-```
