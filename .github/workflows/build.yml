@@ -1,31 +1,24 @@
 name: build-book
-
 on:
   push:
     branches:
       - main
   workflow_dispatch:
-
 permissions:
   contents: read
   pages: write
   id-token: write
-
 concurrency:
   group: pages
   cancel-in-progress: true
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
     container:
       image: pandoc/latex:latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Generuj PDF
         run: |
           pandoc rozdzialy/*.md \
@@ -38,26 +31,40 @@ jobs:
             -V lang=pl \
             -V geometry:margin=2.5cm \
             -o ksiazka.pdf
-
+      - name: Generuj syllabus (HTML)
+        run: |
+          pandoc syllabus.md \
+            --standalone \
+            --toc \
+            -V lang=pl \
+            --metadata title="Syllabus — Inspekcje termowizyjne PV UAV" \
+            -o syllabus.html
       - name: Przygotuj Pages
         run: |
           mkdir -p public
           cp ksiazka.pdf public/
-          echo '<meta http-equiv="refresh" content="0; url=ksiazka.pdf">' > public/index.html
-
+          cp syllabus.html public/
+          printf '%s\n' \
+            '<!doctype html>' \
+            '<html lang="pl"><head><meta charset="utf-8">' \
+            '<title>PV_fdim — materiały robocze</title></head>' \
+            '<body>' \
+            '<h1>Podręcznik PV — materiały robocze</h1>' \
+            '<ul>' \
+            '<li><a href="ksiazka.pdf">Książka (PDF, bieżąca wersja)</a></li>' \
+            '<li><a href="syllabus.html">Syllabus</a></li>' \
+            '</ul>' \
+            '</body></html>' > public/index.html
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: public
-
   deploy:
     needs: build
     runs-on: ubuntu-latest
-
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
