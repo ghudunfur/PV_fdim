@@ -42,9 +42,7 @@ jobs:
       - name: Publikacja artefaktów
         uses: actions/upload-artifact@v4
         with:
-          name: ksiazka
-          path: |
-            ksiazka.pdf
+          path: ksiazka.pdf
   #         ksiazka.docx
             archive: false
   
