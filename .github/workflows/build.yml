@@ -1,0 +1,47 @@
+name: build-book
+
+on:
+  push:
+    paths:
+      - 'rozdzialy/**'
+      - 'bibliografia.bib'
+      - 'ieee.csl'
+      - '.github/workflows/build.yml'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: pandoc/latex:latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Kompilacja do PDF
+        run: |
+          pandoc rozdzialy/*.md \
+            --citeproc \
+            --bibliography=bibliografia.bib \
+            --csl=ieee.csl \
+            --metadata link-citations=true \
+            --toc \
+            -V lang=pl \
+            -V geometry:margin=2.5cm \
+            -o ksiazka.pdf
+
+      - name: Kompilacja do Word
+        run: |
+          pandoc rozdzialy/*.md \
+            --citeproc \
+            --bibliography=bibliografia.bib \
+            --csl=ieee.csl \
+            --toc \
+            -o ksiazka.docx
+
+      - name: Publikacja artefaktów
+        uses: actions/upload-artifact@v4
+        with:
+          name: ksiazka
+          path: |
+            ksiazka.pdf
+            ksiazka.docx
