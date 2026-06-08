@@ -25,6 +25,7 @@ jobs:
             --csl=ieee.csl \
             --metadata link-citations=true \
             --toc \
+            --pdf-engine=xelatex \
             -V lang=pl \
             -V geometry:margin=2.5cm \
             -o ksiazka.pdf
