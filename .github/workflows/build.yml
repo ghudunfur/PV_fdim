@@ -1,33 +1,66 @@
+name: build-book
+
+on:
+push:
+branches:
+- main
+workflow_dispatch:
+
+permissions:
+contents: read
+pages: write
+id-token: write
+
+concurrency:
+group: pages
+cancel-in-progress: true
+
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    container:
-      image: pandoc/latex:latest
+build:
+runs-on: ubuntu-latest
+container:
+image: pandoc/latex:latest
 
-    steps:
-      - uses: actions/checkout@v4
+```
+steps:
+  - name: Checkout
+    uses: actions/checkout@v4
 
-      - name: Kompilacja do PDF
-        run: |
-          pandoc rozdzialy/*.md \
-            --citeproc \
-            --bibliography=bibliografia.bib \
-            --csl=ieee.csl \
-            --metadata link-citations=true \
-            --toc \
-            --pdf-engine=xelatex \
-            -V lang=pl \
-            -V geometry:margin=2.5cm \
-            -o ksiazka.pdf
+  - name: Generuj PDF
+    run: |
+      pandoc rozdzialy/*.md \
+        --citeproc \
+        --bibliography=bibliografia.bib \
+        --csl=ieee.csl \
+        --metadata link-citations=true \
+        --toc \
+        --pdf-engine=xelatex \
+        -V lang=pl \
+        -V geometry:margin=2.5cm \
+        -o ksiazka.pdf
 
-      - name: Przygotuj Pages
-        run: |
-          mkdir pages
-          cp ksiazka.pdf pages/
-          echo "<meta http-equiv='refresh' content='0; url=ksiazka.pdf'>" > pages/index.html
+  - name: Przygotuj Pages
+    run: |
+      mkdir public
+      cp ksiazka.pdf public/
+      echo '<meta http-equiv="refresh" content="0; url=ksiazka.pdf">' > public/index.html
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./pages
+  - name: Upload Pages Artifact
+    uses: actions/upload-pages-artifact@v3
+    with:
+      path: public
+```
+
+deploy:
+needs: build
+runs-on: ubuntu-latest
+environment:
+name: github-pages
+url: ${{ steps.deployment.outputs.page_url }}
+
+```
+steps:
+  - name: Deploy to GitHub Pages
+    id: deployment
+    uses: actions/deploy-pages@v4
+```
