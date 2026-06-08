@@ -202,13 +202,35 @@ Kolejność: 0 → 1 → 2 → 4 → 13 → 24 → 6 → 3 → 9 → 7.
 
 # ANEKS — Źródła
 
-- **IEC TS 62446-3:2017** — PV systems – Requirements for testing, documentation and maintenance – Part 3: Outdoor infrared thermography (główne wytyczne).
-- **IEC 61724-1 / 61724-3** — pomiar wydajności PV i natężenia zabrudzenia (soiling).
-- **IEC 60891** — korekcja charakterystyk I-V do warunków referencyjnych (kontekst dla normalizacji).
-- **ISO 9712** — kwalifikacja personelu badań nieniszczących (poziomy certyfikacji).
-- **ISO 15469** — definicje typów zachmurzenia (okta).
-- O&M best practices: wytyczne IEA PVPS, SolarPower Europe.
-- Materiały OEM dronów (DJI, Wingtra) i karty kamer — do tabel porównawczych sprzętu.
+## Inspekcja i diagnostyka PV (podstawa metodyczna)
+- **IEC TS 62446-3:2017** — Outdoor infrared thermography (dokument kluczowy). Status: Technical Specification, nie pełna norma — zaznaczyć w rozdz. 32. **ED2 w opracowaniu.**
+- **IEC 61724-1 / IEC TS 61724-3** — monitoring wydajności i ocena produkcji energii.
+- **IEC 60891** — korekcja charakterystyk I-V do warunków referencyjnych (kontekst normalizacji ΔT).
+- **ISO 9712** — kwalifikacja personelu badań nieniszczących (rozdz. 35).
+- **Dokumenty WMO (No. 306, No. 8, No. 407)** — okta i klasyfikacja chmur dla decyzji GO/NO GO.
+- **ISO 15469** — przywoływana przez IEC 62446-3; dotyczy rozkładu luminancji nieba (CIE General Sky), **nie** skali okta — zachować tylko jako cytowanie śledzalne (patrz przypis w rozdz. 0).
+- **ISO 9060 / ISO 9847** — klasy i wzorcowanie pyranometrów (rozdz. 13, 17, 18).
+
+## Przepisy lotnicze i procedury operacyjne BSP (warstwa prawna)
+- **Rozporządzenie wykonawcze (UE) 2019/947** oraz **delegowane (UE) 2019/945** — operacje BSP w UE; kategoria szczególna, oznakowanie klas C. Cytować tekst skonsolidowany + AMC/GM (**SORA 2.5**, ED Decision 2025/018/R, 2025).
+- **Prawo lotnicze** (ustawa z 3 lipca 2002) + rozporządzenia ULC — wymagania krajowe; cytować aktualny tekst jednolity.
+- **ISO 21384-3:2023** — procedury operacyjne BSP (zastępuje wycofane wyd. 2019).
+
+> Uwaga zakresowa: dokument operacyjny do ULC (ConOps + SORA) to osobne opracowanie; podręcznik nie jest instrukcją operacyjną w rozumieniu przepisów lotniczych.
+
+## BHP i ochrona danych
+- **ISO 45001** — zarządzanie BHP (zastępuje wycofaną PN-N-18001; krajowo PN-ISO 45001).
+- **RODO — (UE) 2016/679** — przetwarzanie danych przy rejestracji wizerunków/numerów seryjnych.
+
+## Metody odniesienia (poza zakresem — tylko jako kontekst)
+- **IEC TS 62446-4** — Outdoor electroluminescence imaging. **W opracowaniu (projekt, stan 2025).** Dotyczy EL, nie UAS. EL świadomie wyłączona — wyłącznie jako metoda odniesienia w rozdz. 30.
+
+## Metrologia kamery termowizyjnej (opcjonalnie)
+- **VDI/VDE 5585** (Blatt 1: charakterystyka metrologiczna; Blatt 2: wzorcowanie) — pomiar temperatury kamerami IR; przydatne w rozdz. 18, 19, 34, 41. To norma metrologii kamer, **nie** inspekcji PV.
+
+## Źródła branżowe i OEM (nieformalne)
+- O&M best practices: IEA PVPS, SolarPower Europe.
+- Materiały OEM dronów (DJI, Wingtra) i karty kamer — tabele porównawcze sprzętu.
 - Materiały branżowe (Raptor Maps, Sitemark) — kompromisy dronowe i pułapki AI.
 
-> Uwaga: numery norm w aneksie należy zweryfikować co do aktualnego wydania przed cytowaniem w treści. IEC 62446-3 ma status TS (Technical Specification), nie pełnej normy — warto to zaznaczyć w rozdz. 32.
+> Do weryfikacji przed publikacją: aktualne wydania/lata norm względem katalogów IEC/ISO/WMO; status ED2 IEC TS 62446-3 - IEC 62446-3 ma status TS (Technical Specification), nie pełnej normy — warto to zaznaczyć w rozdz. 32.; status projektu IEC TS 62446-4; ewentualna nowa rewizja ISO 21384-3; aktualna wersja pakietu SORA. Klucze cytowań w aneksie muszą odpowiadać kluczom w `bibliografia.bib`.
