@@ -58,6 +58,30 @@ Podstawą metodyczną podręcznika są:
 - **dokumenty WMO** — podstawa oceny warunków atmosferycznych istotnych dla decyzji GO/NO GO. Skalę okta zachmurzenia definiują WMO-No. 306 (Code Table 2700) [@wmo306] oraz WMO-No. 8 [@wmo8], a klasyfikację typów chmur — rozróżnienie cumulus/cirrus, którym posługuje się IEC 62446-3 — WMO-No. 407 (Międzynarodowy atlas chmur) [@wmo407].^[IEC TS 62446-3:2017 w definicji zachmurzenia (pkt 3.5 i nota do Tab. 3) odsyła do ISO 15469:2004 [@iso15469]. Norma ta dotyczy jednak rozkładu luminancji nieba (*CIE Standard General Sky*), a nie skali okta. Właściwą podstawą definicyjną są dokumenty WMO; odniesienie do ISO 15469 zachowujemy wyłącznie jako cytowanie używane przez samą normę IEC, dla śledzalności względem dokumentu nadrzędnego.]
 - wymagania kontraktowe operatorów farm i inwestorów, które w praktyce bywają ostrzejsze niż norma.
 
+Powyższe dokumenty opisują, **jak** wykonać wiarygodną inspekcję, i mają charakter
+wytycznych technicznych — nie są prawem powszechnie obowiązującym, ale bez ich spełnienia
+inspekcja nie zostanie uznana za zgodną z dobrą praktyką inżynierską. Odrębną warstwą,
+**prawnie wiążącą**, są przepisy regulujące samą operację lotniczą oraz ochronę osób i danych:
+
+* **Rozporządzenie wykonawcze (UE) 2019/947 [@ue2019-947]** i **delegowane (UE) 2019/945
+  [@ue2019-945]**, a w zakresie krajowym **Prawo lotnicze [@pllotnicze2002]** — określają
+  warunki wykonywania operacji BSP, wymagania wobec operatora i pilota oraz oznakowanie
+  sprzętu. Ich stronę operacyjną (minimalne odległości, zakłócenia, procedury awaryjne)
+  rozwijamy w rozdz. 20. Dokument operacyjny składany do organu nadzoru lotniczego
+  (koncepcja operacji wraz z oceną ryzyka SORA) jest osobnym opracowaniem — **ten podręcznik
+  go nie zastępuje** i nie jest instrukcją operacyjną w rozumieniu przepisów lotniczych.
+* **ISO 21384-3:2023 [@iso21384-3]** — struktura i treść procedur operacyjnych dla
+  bezzałogowych systemów powietrznych.
+* **ISO 45001 [@iso45001]** — zarządzanie bezpieczeństwem i higieną pracy; istotne ze względu
+  na zagrożenia elektryczne w pobliżu pracujących falowników i infrastruktury SN/WN.
+* **RODO — rozporządzenie (UE) 2016/679 [@ue2016-679]** — przetwarzanie danych osobowych,
+  jeśli rejestrowany materiał obejmuje wizerunki osób, numery seryjne modułów lub inne dane
+  umożliwiające identyfikację.
+
+Normy inspekcyjne PV traktujemy więc jako wytyczne techniczne, a przepisy lotnicze i ochrony
+danych — jako wymagania bezwzględnie obowiązujące. Rozróżnienie to wraca przy omawianiu
+odpowiedzialności inspektora (rozdz. 48).
+
 ## 0.5 Jak korzystać z podręcznika
 
 Podręcznik obsługuje trzy role, które często łączy jedna osoba, ale które wymagają różnej wiedzy:
